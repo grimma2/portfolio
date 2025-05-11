@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Настройка Telegram бота для формы обратной связи
+
+Сайт настроен на отправку сообщений из формы контактов напрямую в ваш Telegram аккаунт. Для настройки:
+
+1. Создайте нового бота через @BotFather в Telegram
+2. Получите токен бота
+3. Создайте файл `.env.local` в корне проекта со следующим содержимым:
+   ```
+   NEXT_PUBLIC_TELEGRAM_BOT_TOKEN=ваш_токен_бота
+   NEXT_PUBLIC_TELEGRAM_USER_ID=ваш_личный_telegram_id
+   ```
+4. Чтобы получить ваш личный Telegram ID, напишите боту @userinfobot в Telegram
+5. Добавьте токен и ваш ID также в настройки окружения на хостинге
+6. Важно: пользователь, которому отправляются сообщения, должен предварительно начать диалог с ботом
