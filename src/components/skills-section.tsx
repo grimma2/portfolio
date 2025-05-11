@@ -5,7 +5,6 @@ import {
   FiCode, 
   FiDatabase, 
   FiServer, 
-  FiLayout, 
   FiGitBranch, 
   FiCloud 
 } from "react-icons/fi";

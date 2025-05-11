@@ -1,6 +1,5 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { motion } from "framer-motion";
 
 export default function AboutPage() {
   return (

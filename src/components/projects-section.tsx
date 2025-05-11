@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FiGithub, FiExternalLink, FiCode, FiEye, FiStar, FiClock } from "react-icons/fi";
+import { FiGithub, FiExternalLink, FiCode, FiEye } from "react-icons/fi";
 import { ProjectPreviewModal } from "./project-preview-modal";
 
 // Профессиональные проекты

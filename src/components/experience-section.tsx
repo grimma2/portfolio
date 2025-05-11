@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiCalendar, FiBriefcase, FiCode, FiImage } from "react-icons/fi";
+import { FiCalendar, FiBriefcase } from "react-icons/fi";
 
 const experiences = [
   {

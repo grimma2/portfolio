@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiGithub, FiLinkedin, FiDownload, FiImage } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiDownload } from "react-icons/fi";
 import Image from "next/image";
 
 export function HeroSection() {

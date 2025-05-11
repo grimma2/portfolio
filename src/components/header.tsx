@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion } from "framer-motion";
-import { useRouter, usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "Главная", path: "/" },
@@ -19,7 +18,6 @@ const navLinks = [
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,12 +61,12 @@ export function Header() {
           </ul>
           <ThemeToggle />
           {/* Кнопка 'Заказать проект' всегда видна и ведет на главную страницу к форме */}
-          <a
+          <Link
             href="/#contact"
             className="ml-8 px-6 py-3 rounded-lg bg-accent text-white font-bold text-lg shadow-lg hover:bg-accent/90 transition-colors border-2 border-accent"
           >
             Заказать проект
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile Navigation Toggle */}
@@ -106,13 +104,13 @@ export function Header() {
             ))}
             {/* Кнопка для мобильного меню всегда видна */}
             <li>
-              <a
+              <Link
                 href="/#contact"
                 className="block m-4 px-6 py-3 rounded-lg bg-accent text-white font-bold text-lg shadow-lg hover:bg-accent/90 transition-colors border-2 border-accent text-center"
                 onClick={() => setIsOpen(false)}
               >
                 Заказать проект
-              </a>
+              </Link>
             </li>
           </ul>
         </motion.div>
