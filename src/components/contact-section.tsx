@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FiMail, FiPhone, FiMapPin, FiSend } from "react-icons/fi";
 
@@ -14,10 +14,18 @@ export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [ymAvailable, setYmAvailable] = useState(false);
 
   // Telegram bot token и ID пользователя
   const TELEGRAM_BOT_TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN || 'YOUR_BOT_TOKEN';
   const TELEGRAM_USER_ID = process.env.NEXT_PUBLIC_TELEGRAM_USER_ID || 'YOUR_USER_ID';
+
+  // Check if Yandex.Metrika is available
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).ym) {
+      setYmAvailable(true);
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -66,6 +74,13 @@ ${formData.message}
 
       setSubmitSuccess(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
+
+      // Send Yandex.Metrika event for successful form submission
+      if (ymAvailable) {
+        (window as any).ym(102000922, 'reachGoal', 'submitForm');
+      } else {
+        console.warn('Yandex.Metrika is not available');
+      }
 
       // Reset success message after 3 seconds
       setTimeout(() => {
