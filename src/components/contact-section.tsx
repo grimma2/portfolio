@@ -4,6 +4,11 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FiMail, FiPhone, FiMapPin, FiSend } from "react-icons/fi";
 
+// Define a type for the window with Yandex Metrika
+interface WindowWithYM extends Window {
+  ym?: (counterId: number, action: string, goal: string) => void;
+}
+
 export function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
@@ -22,7 +27,7 @@ export function ContactSection() {
 
   // Check if Yandex.Metrika is available
   useEffect(() => {
-    if (typeof window !== 'undefined' && (window as any).ym) {
+    if (typeof window !== 'undefined' && (window as WindowWithYM).ym) {
       setYmAvailable(true);
     }
   }, []);
@@ -77,7 +82,7 @@ ${formData.message}
 
       // Send Yandex.Metrika event for successful form submission
       if (ymAvailable) {
-        (window as any).ym(102000922, 'reachGoal', 'submitForm');
+        (window as WindowWithYM).ym?.(102000922, 'reachGoal', 'submitForm');
       } else {
         console.warn('Yandex.Metrika is not available');
       }
