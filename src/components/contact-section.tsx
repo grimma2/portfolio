@@ -236,7 +236,7 @@ ${formData.message}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h3 className="text-2xl font-bold mb-6">Отправить сообщение</h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form id="contact-form" onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block mb-2 text-sm font-medium">
                   Имя
@@ -277,7 +277,6 @@ ${formData.message}
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  required
                   className="w-full p-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all"
                   placeholder="Тема сообщения"
                 />
@@ -291,7 +290,6 @@ ${formData.message}
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  required
                   rows={5}
                   className="w-full p-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all resize-none"
                   placeholder="Я хочу заказать сайт..."

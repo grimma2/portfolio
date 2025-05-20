@@ -31,7 +31,7 @@ export function HeroSection() {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="/contact"
+                href="/contact#contact-form"
                 className="btn btn-primary inline-flex items-center"
               >
                 Заказать проект

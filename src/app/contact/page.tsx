@@ -1,8 +1,21 @@
+"use client";
+
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ContactSection } from "@/components/contact-section";
+import { useEffect } from "react";
 
 export default function ContactPage() {
+  useEffect(() => {
+    // Scroll to the contact form on page load
+    const contactForm = document.getElementById("contact-form");
+    if (contactForm) {
+      const yOffset = -100; // Offset to account for fixed header
+      const y = contactForm.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <main>
       <Header />

@@ -12,7 +12,7 @@ const navLinks = [
   { name: "Проекты", path: "/projects" },
   { name: "Текущий фокус", path: "/focus" },
   { name: "Обо мне", path: "/about" },
-  { name: "Контакты", path: "/contact" },
+  { name: "Контакты", path: "/contact#contact-form" },
 ];
 
 export function Header() {
@@ -62,7 +62,7 @@ export function Header() {
           <ThemeToggle />
           {/* Кнопка 'Заказать проект' всегда видна и ведет на главную страницу к форме */}
           <Link
-            href="/#contact"
+            href="/#contact-form"
             className="ml-8 px-6 py-3 rounded-lg bg-accent text-white font-bold text-lg shadow-lg hover:bg-accent/90 transition-colors border-2 border-accent"
           >
             Заказать проект
@@ -105,7 +105,7 @@ export function Header() {
             {/* Кнопка для мобильного меню всегда видна */}
             <li>
               <Link
-                href="/#contact"
+                href="/#contact-form"
                 className="block m-4 px-6 py-3 rounded-lg bg-accent text-white font-bold text-lg shadow-lg hover:bg-accent/90 transition-colors border-2 border-accent text-center"
                 onClick={() => setIsOpen(false)}
               >
